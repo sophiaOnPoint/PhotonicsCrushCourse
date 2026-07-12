@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1D Slab Waveguide — A Complete Interactive Guide</title>
+
+
+
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$']],
+    displayMath: [['$$','$$']],
+    tags: 'ams'
+  },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("31ecff02-f30e-4953-816f-a95f874202da") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("b8e01b66-18d6-4883-9c88-121a8fa42926") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("6e47af36-6f2a-4bcb-b352-3ab6cf8f2241") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("20a1d77d-ffd1-438c-a97f-bc40e0c4c180") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("8cdb55cf-dc5f-49e5-87e9-7e54048f241c") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("f3a2a2ef-ceee-4664-aeb6-d6d215b17952") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("20a1d77d-ffd1-438c-a97f-bc40e0c4c180") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("8cdb55cf-dc5f-49e5-87e9-7e54048f241c") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f3a2a2ef-ceee-4664-aeb6-d6d215b17952") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("f5634d86-06fd-4faf-a361-75b443107d12") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("b923f005-4a8f-4705-86cf-295e61999e40") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("1f552940-d131-4f5f-bad9-ada9cee861bf") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("cca74078-b727-4031-bcc2-4e5593edaa6a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("d9596d90-aadd-4e4b-9345-27942cde79ea") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("d7ee3d35-c8cb-4afb-850e-2f8e09112cb2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("afa0ad8c-3535-4187-abac-1190a207e71e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("f5634d86-06fd-4faf-a361-75b443107d12") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("b923f005-4a8f-4705-86cf-295e61999e40") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("1f552940-d131-4f5f-bad9-ada9cee861bf") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("cca74078-b727-4031-bcc2-4e5593edaa6a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("d9596d90-aadd-4e4b-9345-27942cde79ea") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("d7ee3d35-c8cb-4afb-850e-2f8e09112cb2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("afa0ad8c-3535-4187-abac-1190a207e71e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("f5634d86-06fd-4faf-a361-75b443107d12") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("b923f005-4a8f-4705-86cf-295e61999e40") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("1f552940-d131-4f5f-bad9-ada9cee861bf") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("cca74078-b727-4031-bcc2-4e5593edaa6a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("d9596d90-aadd-4e4b-9345-27942cde79ea") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("d7ee3d35-c8cb-4afb-850e-2f8e09112cb2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("afa0ad8c-3535-4187-abac-1190a207e71e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("f5634d86-06fd-4faf-a361-75b443107d12") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("b923f005-4a8f-4705-86cf-295e61999e40") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("1f552940-d131-4f5f-bad9-ada9cee861bf") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("cca74078-b727-4031-bcc2-4e5593edaa6a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("d9596d90-aadd-4e4b-9345-27942cde79ea") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("d7ee3d35-c8cb-4afb-850e-2f8e09112cb2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("afa0ad8c-3535-4187-abac-1190a207e71e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("f5634d86-06fd-4faf-a361-75b443107d12") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("b923f005-4a8f-4705-86cf-295e61999e40") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("1f552940-d131-4f5f-bad9-ada9cee861bf") format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("cca74078-b727-4031-bcc2-4e5593edaa6a") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("d9596d90-aadd-4e4b-9345-27942cde79ea") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("d7ee3d35-c8cb-4afb-850e-2f8e09112cb2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("afa0ad8c-3535-4187-abac-1190a207e71e") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("eda9292b-9762-490a-9afc-642f4b350709") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("edd1c1a1-6dc5-47da-920c-c92803d89c3f") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("10c26a79-af0d-46ab-a17e-5514b173d453") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("da081ccf-fe8a-45ca-8d21-cab07378b0dc") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("5a35753b-96a9-4fab-984b-8f892a255b21") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("73996b98-c1cf-4704-be22-08a50b219a0d") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("eda9292b-9762-490a-9afc-642f4b350709") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("edd1c1a1-6dc5-47da-920c-c92803d89c3f") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("10c26a79-af0d-46ab-a17e-5514b173d453") format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("da081ccf-fe8a-45ca-8d21-cab07378b0dc") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("5a35753b-96a9-4fab-984b-8f892a255b21") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("73996b98-c1cf-4704-be22-08a50b219a0d") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #f7f8fc;
+  --surface:   #ffffff;
+  --border:    #dde2ef;
+  --text:      #1a1d2e;
+  --muted:     #64748b;
+  --blue:      #2563eb;
+  --blue-lt:   #eff6ff;
+  --indigo:    #4338ca;
+  --amber:     #d97706;
+  --amber-lt:  #fffbeb;
+  --green:     #15803d;
+  --green-lt:  #f0fdf4;
+  --red:       #dc2626;
+  --purple:    #7c3aed;
+  --sidebar:   240px;
+  --max-w:     820px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ── Sidebar ────────────────────────────────── */
+#sidebar {
+  position: fixed; top: 0; left: 0;
+  width: var(--sidebar);
+  height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 200;
+  padding: 1.5rem 0 2rem;
+}
+
+#sidebar .logo {
+  padding: 0 1.25rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+}
+
+#sidebar .section-label {
+  padding: 0.9rem 1.25rem 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+#sidebar nav a {
+  display: block;
+  padding: 0.35rem 1.25rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+  line-height: 1.4;
+}
+
+#sidebar nav a:hover { color: var(--blue); background: var(--blue-lt); border-left-color: var(--blue); }
+#sidebar nav a.active { color: var(--blue); background: var(--blue-lt); border-left-color: var(--blue); font-weight: 600; }
+
+/* ── Main content ───────────────────────────── */
+#main {
+  margin-left: var(--sidebar);
+  padding: 3rem 5rem;
+  max-width: calc(var(--sidebar) + var(--max-w) + 10rem);
+}
+
+/* ── Hero ───────────────────────────────────── */
+.hero {
+  padding: 2.5rem 0 2rem;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 3.5rem;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
+}
+
+.hero h1 span { color: var(--blue); }
+
+.hero .subtitle {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+}
+
+.tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag {
+  background: var(--blue-lt); color: var(--blue);
+  font-size: 0.72rem; font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+/* ── Sections ───────────────────────────────── */
+.section { margin-bottom: 4.5rem; scroll-margin-top: 1.5rem; }
+
+.section > h2 {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--indigo);
+  margin: 2rem 0 0.65rem;
+}
+
+p {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.02rem;
+  color: var(--text);
+  margin-bottom: 0.9rem;
+}
+
+/* ── Equation boxes ─────────────────────────── */
+.eq {
+  background: var(--blue-lt);
+  border-left: 4px solid var(--blue);
+  border-radius: 0 8px 8px 0;
+  padding: 1.1rem 1.5rem;
+  margin: 1.4rem 0;
+  overflow-x: auto;
+  font-size: 1.05rem;
+}
+
+.eq.amber { background: var(--amber-lt); border-left-color: var(--amber); }
+.eq.green { background: var(--green-lt); border-left-color: var(--green); }
+
+.eq-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+.eq.amber .eq-label { color: var(--amber); }
+.eq.green .eq-label { color: var(--green); }
+
+/* ── Callouts ───────────────────────────────── */
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.98rem;
+  display: flex;
+  gap: 0.75rem;
+}
+.callout-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+.note-box {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  font-family: 'Crimson Pro', serif;
+}
+
+/* ── Canvas wrappers ────────────────────────── */
+.canvas-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.canvas-card h4 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+canvas { display: block; width: 100%; border-radius: 6px; }
+
+/* ── Controls ───────────────────────────────── */
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.ctrl {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.ctrl label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.ctrl .val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-bottom: 0.4rem;
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--blue);
+  cursor: pointer;
+  height: 5px;
+}
+
+/* ── Stats ──────────────────────────────────── */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+}
+
+.stat .slabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.stat .sval {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat .sval.blue { color: var(--blue); }
+
+/* ── Mode legend ────────────────────────────── */
+.legend { display: flex; gap: 1.25rem; flex-wrap: wrap; margin: 0.6rem 0 1rem; }
+.litem { display: flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; }
+.ldot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+#main-legend .litem { cursor: pointer; padding: 0.2rem 0.55rem; border-radius: 999px; border: 1px solid transparent; user-select: none; transition: background 0.15s; }
+#main-legend .litem:hover { background: #f1f5f9; }
+#main-legend .litem-hint { font-size: 0.78rem; color: var(--muted, #64748b); align-self: center; }
+#main-legend input.mode-chk {
+  -webkit-appearance: none; appearance: none;
+  width: 15px; height: 15px;
+  border-radius: 4px;
+  border: 2px solid var(--chk-color, #94a3b8);
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+}
+#main-legend input.mode-chk:checked { background: var(--chk-color, #2563eb); }
+#main-legend input.mode-chk:checked::after {
+  content: '';
+  position: absolute; left: 3px; top: 0;
+  width: 4px; height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* ── Table ──────────────────────────────────── */
+.tbl { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 1.25rem 0; }
+.tbl th { background: var(--text); color: #fff; padding: 0.55rem 1rem; text-align: left; font-weight: 600; }
+.tbl td { padding: 0.45rem 1rem; border-bottom: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 0.83rem; }
+.tbl tr:nth-child(even) td { background: var(--bg); }
+
+/* ── Ordered steps ──────────────────────────── */
+.steps { list-style: none; counter-reset: step; padding: 0; }
+.steps li {
+  counter-increment: step;
+  display: flex; gap: 1rem; align-items: flex-start;
+  margin-bottom: 0.75rem;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.02rem;
+}
+.steps li::before {
+  content: counter(step);
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.7rem; height: 1.7rem;
+  background: var(--blue); color: #fff;
+  border-radius: 50%;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem; font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Two-column comparison ──────────────────── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.col-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; }
+.col-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+
+/* ── Footer ─────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.83em;
+  background: #f1f5f9;
+  padding: 0.15em 0.45em;
+  border-radius: 4px;
+  color: var(--red);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 860px) {
+  #sidebar { display: none; }
+  #main { margin-left: 0; padding: 1.5rem 1.25rem; }
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ════════════════════════════════════════════
+     SIDEBAR
+     ════════════════════════════════════════════ -->
+<div id="sidebar">
+  <div class="logo">Slab Waveguide</div>
+  <div class="section-label">Foundations</div>
+  <nav>
+    <a href="#intro" class="active">1 · Introduction</a>
+    <a href="#geometry">2 · Geometry</a>
+    <a href="#maxwell">3 · Maxwell's Equations</a>
+    <a href="#helmholtz">4 · Helmholtz Equation</a>
+    <a href="#te-modes">5 · TE vs TM Modes</a>
+    <a href="#field-solutions">6 · Field Solutions</a>
+    <a href="#bc">7 · Boundary Conditions</a>
+    <a href="#dispersion">8 · Dispersion Relation</a>
+  </nav>
+  <div class="section-label">Interactive</div>
+  <nav>
+    <a href="#explorer">9 · Mode Explorer</a>
+    <a href="#vcounting">10 · V Number &amp; Mode Count</a>
+  </nav>
+  <div class="section-label">Extensions</div>
+  <nav>
+    <a href="#tm">11 · TM Modes</a>
+    <a href="#confinement">12 · Confinement Factor</a>
+    <a href="#numerical">13 · Numerical Methods</a>
+    <a href="#summary">14 · Summary</a>
+  </nav>
+</div>
+
+<!-- ════════════════════════════════════════════
+     MAIN
+     ════════════════════════════════════════════ -->
+<div id="main">
+
+<!-- HERO -->
+<div class="hero">
+  <h1>The <span>1D Slab Waveguide</span><br>A Complete Interactive Guide</h1>
+  <p class="subtitle">
+    From Maxwell's equations to guided modes — every step of the derivation,
+    with live visualizations you can tune.
+  </p>
+  <div class="tags">
+    <span class="tag">Electromagnetics</span>
+    <span class="tag">Photonics</span>
+    <span class="tag">Integrated Optics</span>
+    <span class="tag">Silicon Photonics</span>
+    <span class="tag">Wave Equation</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 1  Introduction
+     ────────────────────────────────────────── -->
+<div class="section" id="intro">
+  <h2>1 · Introduction</h2>
+
+  <p>A <strong>waveguide</strong> is a structure that confines and guides electromagnetic waves.
+  The simplest model in integrated photonics is the <em>slab waveguide</em>: an infinite
+  planar layer of high-index material sandwiched between two semi-infinite layers of
+  lower-index material.</p>
+
+  <p>Despite its apparent simplicity, the slab waveguide captures almost every phenomenon
+  that matters in real devices — mode quantization, the concept of an effective index,
+  mode cut-off, and the tradeoff between confinement and field penetration into the cladding.
+  It is the foundation for understanding ridge waveguides, optical fibers, and
+  photonic crystal slabs.</p>
+
+  <h3>Why does light stay in the core?</h3>
+
+  <p>The mechanism is <strong>total internal reflection (TIR)</strong>.  When a ray inside a
+  high-index medium strikes a low-index interface at a shallow enough angle (measured from the
+  surface), it is reflected with 100 % efficiency — it cannot escape.  The critical angle
+  $\theta_c$ is found from Snell's law at the point where the refracted ray grazes the
+  interface:</p>
+
+  <div class="eq">
+    <div class="eq-label">Snell → Critical Angle</div>
+    $$n_\text{core}\sin\theta_c = n_\text{clad}\sin 90° \implies \theta_c = \arcsin\!\left(\frac{n_\text{clad}}{n_\text{core}}\right)$$
+  </div>
+
+  <p>Rays that hit the interface at angles <em>larger</em> than $\theta_c$ (measured from the
+  normal) are totally reflected and remain trapped.  The wave-optics version of this
+  argument leads to the same conclusion: guided modes exist only when
+  $n_\text{clad} &lt; n_\text{eff} &lt; n_\text{core}$, where $n_\text{eff} = \beta / k_0$
+  is the effective index of the mode.</p>
+
+  <div class="callout">
+    <span class="callout-icon">💡</span>
+    <span>Slab waveguides appear everywhere in photonics: silicon-on-insulator (SOI) platforms,
+    III–V laser slabs, thin-film lithium niobate, and polymer waveguides all start from
+    this same 3-layer geometry.</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 2  Geometry
+     ────────────────────────────────────────── -->
+<div class="section" id="geometry">
+  <h2>2 · Geometry &amp; Index Profile</h2>
+
+  <p>We define coordinates so that:</p>
+  <ul style="font-family:'Crimson Pro',serif;font-size:1.02rem;padding-left:1.5rem;margin-bottom:0.9rem;">
+    <li>$x$ is the <strong>transverse</strong> direction (across the slab thickness).</li>
+    <li>$z$ is the <strong>propagation</strong> direction (along the waveguide).</li>
+    <li>$y$ is the <strong>lateral</strong> direction — the structure is infinite and uniform in $y$.</li>
+  </ul>
+
+  <p>The slab has total thickness $d = 2a$ and is centred at $x = 0$.  The refractive
+  index profile is a step function:</p>
+
+  <div class="eq">
+    <div class="eq-label">Index Profile</div>
+    $$n(x) = \begin{cases} n_\text{core} &amp; |x| &lt; a \\ n_\text{clad} &amp; |x| &gt; a \end{cases}$$
+  </div>
+
+  <p>The geometry is shown below — the left panel is the index profile $n(x)$ and the
+  right panel sketches the intensity $|E_y(x)|^2$ of the fundamental guided mode.</p>
+
+  <div class="canvas-card">
+    <h4>Figure 1 — Slab geometry and TE₀ field sketch</h4>
+    <canvas id="geoCanvas" width="700" height="220"></canvas>
+  </div>
+
+  <p>The key dimensionless parameter governing how many modes the slab supports is the
+  <strong>normalised frequency</strong> (V number), which we derive in §10.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 3  Maxwell's Equations
+     ────────────────────────────────────────── -->
+<div class="section" id="maxwell">
+  <h2>3 · Maxwell's Equations</h2>
+
+  <p>Everything starts from Maxwell's macroscopic curl equations in a linear, isotropic,
+  non-magnetic, source-free medium:</p>
+
+  <div class="eq">
+    <div class="eq-label">Maxwell curl equations (time domain)</div>
+    $$\nabla \times \mathbf{E} = -\mu_0 \frac{\partial \mathbf{H}}{\partial t}, \qquad
+    \nabla \times \mathbf{H} = \varepsilon_0 n^2 \frac{\partial \mathbf{E}}{\partial t}$$
+  </div>
+
+  <p>We assume a <strong>time-harmonic</strong> (monochromatic) field with angular frequency
+  $\omega$ and use the phasor convention $e^{-i\omega t}$, so
+  $\partial / \partial t \to -i\omega$.  The curl equations become:</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Time-harmonic Maxwell (frequency domain)</div>
+    $$\nabla \times \mathbf{E} = i\omega\mu_0 \mathbf{H}, \qquad
+    \nabla \times \mathbf{H} = -i\omega\varepsilon_0 n^2 \mathbf{E}$$
+  </div>
+
+  <p>We also need the divergence conditions.  In a region of uniform index,
+  $\nabla \cdot \mathbf{E} = 0$ (no free charges and $n$ is constant).</p>
+
+  <h3>From curl-curl to the vector wave equation</h3>
+
+  <p>Take the curl of the first equation and substitute the second:</p>
+
+  <div class="eq">
+    <div class="eq-label">Derivation</div>
+    $$\nabla\times(\nabla\times\mathbf{E}) = i\omega\mu_0(\nabla\times\mathbf{H})
+      = i\omega\mu_0(-i\omega\varepsilon_0 n^2)\mathbf{E} = \omega^2\mu_0\varepsilon_0 n^2\mathbf{E}$$
+  </div>
+
+  <p>Apply the vector identity
+  $\nabla\times(\nabla\times\mathbf{E}) = \nabla(\nabla\cdot\mathbf{E}) - \nabla^2\mathbf{E}$
+  and use $\nabla\cdot\mathbf{E}=0$:</p>
+
+  <div class="eq green">
+    <div class="eq-label">Vector Helmholtz Equation</div>
+    $$\nabla^2\mathbf{E} + k_0^2\, n^2\, \mathbf{E} = 0, \qquad k_0 = \frac{\omega}{c} = \frac{2\pi}{\lambda}$$
+  </div>
+
+  <p>where $k_0$ is the free-space wavenumber and $c = 1/\sqrt{\mu_0\varepsilon_0}$ is the
+  speed of light.  Each Cartesian component of $\mathbf{E}$ satisfies this scalar
+  Helmholtz equation in a region where $n$ is constant.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 4  Helmholtz Equation
+     ────────────────────────────────────────── -->
+<div class="section" id="helmholtz">
+  <h2>4 · Mode Ansatz &amp; the 1D Eigenvalue Problem</h2>
+
+  <p>Because the structure is uniform in $y$ and $z$, we look for solutions of the form:</p>
+
+  <div class="eq">
+    <div class="eq-label">Guided-mode ansatz</div>
+    $$\mathbf{E}(x,y,z,t) = \mathbf{E}(x)\, e^{i\beta z}\, e^{-i\omega t}$$
+  </div>
+
+  <p>where $\beta$ is the (unknown) propagation constant along $z$.  Substituting into
+  the scalar Helmholtz equation and using $\partial/\partial y=0$, $\partial/\partial z = i\beta$:</p>
+
+  <div class="eq">
+    <div class="eq-label">Substitution</div>
+    $$\frac{d^2 E}{dx^2} + (k_0^2 n^2 - \beta^2) E = 0$$
+  </div>
+
+  <p>This is a <strong>1D eigenvalue problem</strong>.  Define the <em>effective index</em>
+  $n_\text{eff} = \beta / k_0$ (the phase index experienced by the mode).  Then:</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Transverse equation in each region</div>
+    $$\frac{d^2 E}{dx^2} + k_0^2(n^2 - n_\text{eff}^2)\, E = 0$$
+  </div>
+
+  <p>The sign of $(n^2 - n_\text{eff}^2)$ determines the character of the solution
+  in each layer:</p>
+
+  <div class="two-col">
+    <div class="col-card" style="border-left:4px solid var(--blue);">
+      <h4 style="color:var(--blue);">Core &nbsp;($|x|&lt;a$,&nbsp; $n=n_\text{core}$)</h4>
+      <p style="margin:0;">If $n_\text{eff} &lt; n_\text{core}$, then $n_\text{core}^2 - n_\text{eff}^2 &gt; 0$, so the solution <em>oscillates</em> with transverse wavenumber:</p>
+      <div style="text-align:center;margin-top:0.5rem;">$$\kappa = k_0\sqrt{n_\text{core}^2 - n_\text{eff}^2}$$</div>
+    </div>
+    <div class="col-card" style="border-left:4px solid var(--red);">
+      <h4 style="color:var(--red);">Cladding &nbsp;($|x|&gt;a$,&nbsp; $n=n_\text{clad}$)</h4>
+      <p style="margin:0;">If $n_\text{eff} &gt; n_\text{clad}$, then $n_\text{clad}^2 - n_\text{eff}^2 &lt; 0$, so the solution <em>decays</em> exponentially with decay constant:</p>
+      <div style="text-align:center;margin-top:0.5rem;">$$\gamma = k_0\sqrt{n_\text{eff}^2 - n_\text{clad}^2}$$</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">🔑</span>
+    <span><strong>Guided modes exist only when</strong> $n_\text{clad} &lt; n_\text{eff} &lt; n_\text{core}$.
+    This ensures oscillation in the core and decay in the cladding — exactly the TIR picture
+    recast in wave-optics language.</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 5  TE vs TM
+     ────────────────────────────────────────── -->
+<div class="section" id="te-modes">
+  <h2>5 · TE vs TM Modes</h2>
+
+  <p>In a planar slab, modes separate cleanly into two polarisation families depending on
+  which field component is transverse to the propagation plane ($x$–$z$).</p>
+
+  <div class="two-col">
+    <div class="col-card" style="border-left:4px solid var(--blue);">
+      <h4 style="color:var(--blue);">TE — Transverse Electric</h4>
+      <p style="margin:0 0 0.5rem;">Only $E_y \neq 0$ among the electric field components.
+      The non-zero field components are:</p>
+      <p style="margin:0;font-family:'Crimson Pro',serif;">$E_y$, $H_x$, $H_z$</p>
+      <p style="margin:0.5rem 0 0;font-size:0.9rem;font-family:'Crimson Pro',serif;">
+      $H_x$ and $H_z$ are derived from $E_y$ via Maxwell's curl equation.</p>
+    </div>
+    <div class="col-card" style="border-left:4px solid var(--purple);">
+      <h4 style="color:var(--purple);">TM — Transverse Magnetic</h4>
+      <p style="margin:0 0 0.5rem;">Only $H_y \neq 0$ among the magnetic field components.
+      The non-zero field components are:</p>
+      <p style="margin:0;font-family:'Crimson Pro',serif;">$H_y$, $E_x$, $E_z$</p>
+      <p style="margin:0.5rem 0 0;font-size:0.9rem;font-family:'Crimson Pro',serif;">
+      TM modes are generally less well-confined than TE modes at the same order (see §11).</p>
+    </div>
+  </div>
+
+  <h3>TE field components from Maxwell</h3>
+
+  <p>For TE modes, $E_y(x) e^{i\beta z}$ is the only independent field.
+  The magnetic field components follow directly from Faraday's law
+  $\nabla\times\mathbf{E} = i\omega\mu_0\mathbf{H}$:</p>
+
+  <div class="eq">
+    <div class="eq-label">TE magnetic fields</div>
+    $$H_x = -\frac{\beta}{\omega\mu_0} E_y, \qquad
+    H_z = \frac{i}{\omega\mu_0}\frac{dE_y}{dx}$$
+  </div>
+
+  <p>So we only need to solve for $E_y(x)$.  All other fields follow.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 6  Field Solutions
+     ────────────────────────────────────────── -->
+<div class="section" id="field-solutions">
+  <h2>6 · Field Solutions in Each Region</h2>
+
+  <p>In the core ($|x| &lt; a$) the transverse equation is
+  $d^2E_y/dx^2 + \kappa^2 E_y = 0$, which has sinusoidal solutions.
+  Because the slab is <em>symmetric</em>, modes split into <strong>even</strong>
+  (cosine) and <strong>odd</strong> (sine) families:</p>
+
+  <div class="eq">
+    <div class="eq-label">Core field — even modes (TE₀, TE₂, …)</div>
+    $$E_y(x) = A\cos(\kappa x), \quad |x| \le a$$
+  </div>
+
+  <div class="eq">
+    <div class="eq-label">Core field — odd modes (TE₁, TE₃, …)</div>
+    $$E_y(x) = A\sin(\kappa x), \quad |x| \le a$$
+  </div>
+
+  <p>In the cladding ($|x| &gt; a$) the equation is
+  $d^2E_y/dx^2 - \gamma^2 E_y = 0$.  We keep only the decaying solution (the growing
+  solution diverges and is unphysical):</p>
+
+  <div class="eq">
+    <div class="eq-label">Cladding field ($x &gt; a$)</div>
+    $$E_y(x) = B\, e^{-\gamma(x - a)}, \quad x &gt; a$$
+  </div>
+
+  <p>By symmetry, for $x &lt; -a$: $E_y(-x) = \pm E_y(x)$ (plus for even, minus for odd).
+  The amplitude $B$ is determined by the boundary conditions at $x = a$.</p>
+
+  <div class="canvas-card">
+    <h4>Figure 2 — Qualitative field profiles for the first three TE modes</h4>
+    <canvas id="qualCanvas" width="700" height="220"></canvas>
+  </div>
+
+  <p>Notice that mode number $m$ has exactly $m$ nodes (zeros) in the core.
+  Higher-order modes have more oscillations and, at the same frequency, are less
+  tightly confined — their effective index is closer to $n_\text{clad}$.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 7  Boundary Conditions
+     ────────────────────────────────────────── -->
+<div class="section" id="bc">
+  <h2>7 · Boundary Conditions</h2>
+
+  <p>At the core–cladding interface $x = a$, the tangential electric and magnetic fields
+  must be continuous.  For TE modes the tangential fields are $E_y$ and $H_z$
+  (which is proportional to $dE_y/dx$):</p>
+
+  <ol class="steps">
+    <li><strong>Continuity of $E_y$ at $x=a$:</strong> core value equals cladding value.</li>
+    <li><strong>Continuity of $H_z \propto dE_y/dx$ at $x=a$:</strong> slope must also match.</li>
+  </ol>
+
+  <p>For the even TE mode with core field $A\cos(\kappa x)$ and cladding field $Be^{-\gamma(x-a)}$:</p>
+
+  <div class="eq">
+    <div class="eq-label">Matching $E_y$ at $x = a$</div>
+    $$A\cos(\kappa a) = B$$
+  </div>
+
+  <div class="eq">
+    <div class="eq-label">Matching $dE_y/dx$ at $x = a$</div>
+    $$-A\kappa\sin(\kappa a) = -B\gamma$$
+  </div>
+
+  <p>Divide the second equation by the first (eliminating the amplitude $A$):</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Even TE dispersion relation (un-normalised)</div>
+    $$\kappa \tan(\kappa a) = \gamma$$
+  </div>
+
+  <p>Repeating for the odd mode (core field $A\sin(\kappa x)$):</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Odd TE dispersion relation (un-normalised)</div>
+    $$-\kappa \cot(\kappa a) = \gamma$$
+  </div>
+
+  <p>These two equations, combined with the constraint
+  $\kappa^2 + \gamma^2 = k_0^2(n_\text{core}^2 - n_\text{clad}^2)$, determine
+  the allowed values of $\beta$ (and hence $n_\text{eff}$) for each guided mode.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 8  Dispersion Relation
+     ────────────────────────────────────────── -->
+<div class="section" id="dispersion">
+  <h2>8 · The Normalised Dispersion Relation</h2>
+
+  <p>Introduce three dimensionless variables that absorb the physical parameters:</p>
+
+  <div class="eq green">
+    <div class="eq-label">Normalised variables</div>
+    $$u = \kappa a = k_0 a\sqrt{n_\text{core}^2 - n_\text{eff}^2}, \quad
+    w = \gamma a = k_0 a\sqrt{n_\text{eff}^2 - n_\text{clad}^2}$$
+    $$V = k_0 a\sqrt{n_\text{core}^2 - n_\text{clad}^2} \quad \Longrightarrow \quad u^2 + w^2 = V^2$$
+  </div>
+
+  <p>$V$ is the <strong>normalised frequency</strong> (or V-number).  It depends only on
+  the wavelength, index contrast, and thickness — not on $\beta$.
+  The dispersion relations become:</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Even TE modes</div>
+    $$u\tan u = w, \qquad u^2 + w^2 = V^2$$
+  </div>
+
+  <div class="eq amber">
+    <div class="eq-label">Odd TE modes</div>
+    $$-u\cot u = w, \qquad u^2 + w^2 = V^2$$
+  </div>
+
+  <p>These are transcendental equations that must be solved numerically (or graphically).
+  The <strong>graphical solution</strong> is one of the most instructive tools in
+  waveguide theory: plot $u\tan u$ (even branches) and $-u\cot u$ (odd branches)
+  together with the circle $w = \sqrt{V^2 - u^2}$ of radius $V$.
+  Each intersection is a guided mode.</p>
+
+  <p>Use the slider below to change $V$ and watch modes appear and disappear:</p>
+
+  <div class="canvas-card">
+    <h4>Figure 3 — Graphical solution of the TE dispersion relation</h4>
+    <div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:0.75rem;flex-wrap:wrap;">
+      <div>
+        <label style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);">V number</label>
+        <div class="val" id="graphV-val" style="font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;color:var(--blue);">3.00</div>
+        <input type="range" id="graphV" min="0.1" max="12" step="0.05" value="3.0" style="width:220px;accent-color:var(--blue);">
+      </div>
+      <div class="legend" id="graph-legend"></div>
+    </div>
+    <canvas id="graphCanvas" width="700" height="340"></canvas>
+  </div>
+
+  <p>Every time $V$ crosses a multiple of $\pi/2$, a new mode reaches cutoff and
+  appears at $u = m\pi/2$, $w = 0$, climbing up the circle as $V$ increases.
+  Mode TE$_m$ has its cutoff at $V = m\pi/2$.</p>
+
+  <div class="callout">
+    <span class="callout-icon">📐</span>
+    <span>The <strong>fundamental mode TE₀ has no cutoff</strong> — it exists for any $V &gt; 0$
+    (any non-zero thickness or wavelength).  All higher-order modes have a minimum $V$
+    below which they do not exist as guided modes.</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 9  Interactive Explorer
+     ────────────────────────────────────────── -->
+<div class="section" id="explorer">
+  <h2>9 · Interactive Mode Explorer</h2>
+
+  <p>Tune the physical parameters — wavelength, core and cladding indices, and slab
+  thickness — and see immediately how the guided modes respond.  The left canvas
+  shows the normalised field profiles $E_y(x)$ and the right canvas shows the
+  universal dispersion diagram ($b$ vs $V$), where</p>
+
+  <div class="eq">
+    <div class="eq-label">Normalised effective index</div>
+    $$b = \frac{n_\text{eff}^2 - n_\text{clad}^2}{n_\text{core}^2 - n_\text{clad}^2} \in [0,\,1]$$
+  </div>
+
+  <p>$b = 0$ at cutoff ($n_\text{eff} = n_\text{clad}$), and $b \to 1$ for a
+  strongly guided mode ($n_\text{eff} \to n_\text{core}$).</p>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="ctrl">
+      <label>Wavelength λ</label>
+      <div class="val" id="lam-val">1.55 µm</div>
+      <input type="range" id="lam" min="0.8" max="3.0" step="0.01" value="1.55">
+    </div>
+    <div class="ctrl">
+      <label>Core index n<sub>core</sub></label>
+      <div class="val" id="ncore-val">3.48</div>
+      <input type="range" id="ncore" min="1.5" max="4.5" step="0.01" value="3.48">
+    </div>
+    <div class="ctrl">
+      <label>Clad index n<sub>clad</sub></label>
+      <div class="val" id="nclad-val">1.44</div>
+      <input type="range" id="nclad" min="1.0" max="3.5" step="0.01" value="1.44">
+    </div>
+    <div class="ctrl">
+      <label>Thickness d</label>
+      <div class="val" id="d-val">1.00 µm</div>
+      <input type="range" id="d" min="0.05" max="5.0" step="0.01" value="1.0">
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="slabel">V number</div><div class="sval blue" id="stat-V">—</div></div>
+    <div class="stat"><div class="slabel">Guided modes</div><div class="sval blue" id="stat-M">—</div></div>
+    <div class="stat"><div class="slabel">TE₀ n<sub>eff</sub></div><div class="sval" id="stat-neff0">—</div></div>
+    <div class="stat"><div class="slabel">TE₁ n<sub>eff</sub></div><div class="sval" id="stat-neff1">—</div></div>
+    <div class="stat"><div class="slabel">TE₂ n<sub>eff</sub></div><div class="sval" id="stat-neff2">—</div></div>
+  </div>
+
+  <!-- Mode colour legend -->
+  <div class="legend" id="main-legend"></div>
+
+  <!-- Field profile canvas -->
+  <div class="canvas-card">
+    <h4>Field profiles E<sub>y</sub>(x) — normalised so max|E| = 1</h4>
+    <canvas id="fieldCanvas" width="700" height="300"></canvas>
+  </div>
+
+  <!-- Dispersion diagram canvas -->
+  <div class="canvas-card">
+    <h4>Universal dispersion diagram — b vs V (TE modes)</h4>
+    <canvas id="dispCanvas" width="700" height="300"></canvas>
+  </div>
+
+  <!-- Mode table -->
+  <div id="mode-table-wrap" style="margin-top:1rem;"></div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 10  V Number and Mode Count
+     ────────────────────────────────────────── -->
+<div class="section" id="vcounting">
+  <h2>10 · V Number &amp; Mode Counting</h2>
+
+  <p>The V-number (also called the <em>normalised frequency</em> or <em>V parameter</em>)
+  encapsulates all the geometry and material information that determines how many
+  guided modes exist:</p>
+
+  <div class="eq green">
+    <div class="eq-label">V number — two equivalent forms</div>
+    $$V = \frac{2\pi}{\lambda}\cdot\frac{d}{2}\cdot\sqrt{n_\text{core}^2 - n_\text{clad}^2}
+    = \frac{\pi d}{\lambda}\,\text{NA}$$
+  </div>
+
+  <p>where $\text{NA} = \sqrt{n_\text{core}^2 - n_\text{clad}^2}$ is the
+  numerical aperture of the waveguide (related to the acceptance angle in free space).</p>
+
+  <h3>Cutoff conditions</h3>
+
+  <p>Mode TE$_m$ ($m = 0, 1, 2, \ldots$) exists as a guided mode only if
+  $V &gt; m\pi/2$, i.e., at cutoff its V-number equals exactly $m\pi/2$.
+  The number of guided TE modes is therefore:</p>
+
+  <div class="eq">
+    <div class="eq-label">Number of guided TE modes</div>
+    $$M = \left\lfloor \frac{V}{\pi/2} \right\rfloor + 1
+    = \left\lfloor \frac{2V}{\pi} \right\rfloor + 1$$
+  </div>
+
+  <table class="tbl">
+    <thead>
+      <tr><th>$V$ range</th><th>Guided TE modes</th><th>Single-mode?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>$0 &lt; V &lt; \pi/2 \approx 1.571$</td><td>TE₀ only</td><td>✓ Yes</td></tr>
+      <tr><td>$\pi/2 \le V &lt; \pi \approx 3.14$</td><td>TE₀, TE₁</td><td>✗ No</td></tr>
+      <tr><td>$\pi \le V &lt; 3\pi/2 \approx 4.71$</td><td>TE₀, TE₁, TE₂</td><td>✗ No</td></tr>
+      <tr><td>$3\pi/2 \le V &lt; 2\pi \approx 6.28$</td><td>TE₀, TE₁, TE₂, TE₃</td><td>✗ No</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Single-mode condition</h3>
+
+  <p>The waveguide supports only the fundamental TE₀ mode when $V &lt; \pi/2$.
+  Solving for thickness:</p>
+
+  <div class="eq amber">
+    <div class="eq-label">Single-mode thickness condition</div>
+    $$d &lt; \frac{\lambda}{2\,\text{NA}} = \frac{\lambda}{2\sqrt{n_\text{core}^2 - n_\text{clad}^2}}$$
+  </div>
+
+  <p>For a silicon slab ($n_\text{core}=3.48$, $n_\text{clad}=1.44$) at $\lambda = 1.55\,\mu\text{m}$:
+  $\text{NA} \approx 3.17$, so single-mode requires $d &lt; 0.244\,\mu\text{m}$.</p>
+
+  <div class="note-box">
+    <strong>Note:</strong> The single-mode condition above is for TE modes only.
+    TM₀ also exists at all V. A truly single-mode waveguide (supporting only one
+    polarization and one mode) requires the slab geometry to be abandoned in favour
+    of a fully 2D-confined ridge or wire waveguide.
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 11  TM Modes
+     ────────────────────────────────────────── -->
+<div class="section" id="tm">
+  <h2>11 · TM Modes</h2>
+
+  <p>For TM modes, the magnetic field $H_y(x)e^{i\beta z}$ plays the role of the
+  scalar field.  The transverse equation is the same:
+  $d^2 H_y / dx^2 + (k_0^2 n^2 - \beta^2) H_y = 0$.
+  However, the boundary condition at the interface is different:
+  <em>the normal component of $\mathbf{D} = \varepsilon_0 n^2 \mathbf{E}$ must be continuous</em>,
+  which for $E_x \propto (1/n^2) dH_y/dx$ means that $(1/n^2)\,dH_y/dx$ is continuous.</p>
+
+  <p>Applying the TM boundary conditions at $x = a$ gives:</p>
+
+  <div class="eq">
+    <div class="eq-label">Even TM dispersion relation</div>
+    $$u\tan u = \left(\frac{n_\text{core}}{n_\text{clad}}\right)^2 w$$
+  </div>
+
+  <div class="eq">
+    <div class="eq-label">Odd TM dispersion relation</div>
+    $$-u\cot u = \left(\frac{n_\text{core}}{n_\text{clad}}\right)^2 w$$
+  </div>
+
+  <p>The factor $(n_\text{core}/n_\text{clad})^2 &gt; 1$ makes the right-hand side
+  larger, which pushes the graphical intersection closer to the $u$-axis —
+  meaning the TM$_m$ effective index is <em>lower</em> than TE$_m$ for the same parameters.
+  In a strongly asymmetric guide, TM modes are sometimes not supported at all.</p>
+
+  <p>The cutoff V-values for TM modes are the same as for TE modes (both at $V = m\pi/2$),
+  but the confinement is weaker at any given V.</p>
+
+  <div class="callout">
+    <span class="callout-icon">⚡</span>
+    <span>In silicon photonics (high index contrast), the TE–TM splitting in effective index
+    can be large (0.3–0.5 neff units), which is why many silicon devices are designed
+    specifically for one polarization.</span>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 12  Confinement Factor
+     ────────────────────────────────────────── -->
+<div class="section" id="confinement">
+  <h2>12 · Confinement Factor</h2>
+
+  <p>The <strong>confinement factor</strong> $\Gamma$ measures what fraction of the guided
+  mode's energy is located inside the core:</p>
+
+  <div class="eq">
+    <div class="eq-label">Confinement factor (TE mode)</div>
+    $$\Gamma = \frac{\displaystyle\int_{-a}^{a} |E_y|^2\,dx}{\displaystyle\int_{-\infty}^{\infty} |E_y|^2\,dx}$$
+  </div>
+
+  <p>For the even TE modes, integrating the piecewise field analytically:</p>
+
+  <div class="eq">
+    <div class="eq-label">Analytical confinement factor (even TE modes)</div>
+    $$\Gamma = \frac{1 + \dfrac{\sin 2u}{2u}}{1 + \dfrac{\sin 2u}{2u} + \dfrac{\cos^2 u}{w}}$$
+  </div>
+
+  <p>where $u$ and $w$ are the normalised transverse wavenumbers from the dispersion
+  solution.  As $V \to \infty$ (very thick slab or short wavelength),
+  $u \to m\pi/2$ and $w \to \infty$, so $\Gamma \to 1$.  At cutoff ($w = 0$),
+  $\Gamma \to 0$.</p>
+
+  <p>$\Gamma$ appears directly in the gain coefficient for a laser:
+  the material gain $g_\text{mat}$ produces a modal gain $\Gamma g_\text{mat}$,
+  so a poorly confined mode (low $\Gamma$) sees less gain from the active core.</p>
+
+  <p>In the interactive explorer above (§9), the confinement factor for each mode
+  can be read from the mode table — try reducing the slab thickness to watch
+  $\Gamma$ drop towards zero as the mode approaches cutoff.</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 13  Numerical Methods
+     ────────────────────────────────────────── -->
+<div class="section" id="numerical">
+  <h2>13 · Numerical Methods</h2>
+
+  <p>When the analytical approach is not available (e.g., graded-index profiles,
+  multi-layer slabs, or full 2D cross-sections), we discretise the transverse
+  equation using the <strong>finite-difference method</strong>.</p>
+
+  <h3>Finite-difference discretisation</h3>
+
+  <p>Approximate the second derivative with a central difference on a uniform grid
+  with spacing $\Delta x$:</p>
+
+  <div class="eq">
+    <div class="eq-label">Second-order central difference</div>
+    $$\frac{d^2 E_i}{dx^2} \approx \frac{E_{i+1} - 2E_i + E_{i-1}}{\Delta x^2}$$
+  </div>
+
+  <p>Substituting into $d^2E/dx^2 = (\beta^2 - k_0^2 n_i^2)E$:</p>
+
+  <div class="eq">
+    <div class="eq-label">Matrix eigenvalue problem</div>
+    $$\mathbf{A}\,\mathbf{E} = \beta^2\,\mathbf{E},
+    \qquad
+    A_{ii} = -\frac{2}{\Delta x^2} + k_0^2 n_i^2, \quad
+    A_{i,i\pm 1} = \frac{1}{\Delta x^2}$$
+  </div>
+
+  <p>Solving for the <em>largest</em> eigenvalue $\beta^2$ gives the fundamental mode,
+  and the corresponding eigenvector is the field profile $E_y(x_i)$.</p>
+
+  <h3>Convergence</h3>
+
+  <p>Because the central difference is <strong>second-order accurate</strong>
+  ($O(\Delta x^2)$), the error in $n_\text{eff}$ scales as $\Delta x^2$.
+  Halving $\Delta x$ reduces the error by a factor of 4.
+  This is confirmed by the convergence plot below (produced by the companion Python
+  scripts):</p>
+
+  <div class="canvas-card">
+    <h4>Figure 4 — Schematic convergence of the FD method (log-log)</h4>
+    <canvas id="convCanvas" width="700" height="240"></canvas>
+  </div>
+
+  <p>The companion Python scripts <code>step_by_step_slab_fd_solver.py</code> and
+  <code>slab_fd_field_convergence.py</code> implement this solver and reproduce
+  both the mode profile and the $O(\Delta x^2)$ convergence on a real silicon-on-silica
+  slab ($n_\text{core}=3.48$, $n_\text{clad}=1.44$, $d=1\,\mu\text{m}$,
+  $\lambda=1.55\,\mu\text{m}$).</p>
+</div>
+
+<!-- ──────────────────────────────────────────
+     § 14  Summary
+     ────────────────────────────────────────── -->
+<div class="section" id="summary">
+  <h2>14 · Summary</h2>
+
+  <table class="tbl">
+    <thead><tr><th>Concept</th><th>Formula / Result</th></tr></thead>
+    <tbody>
+      <tr><td>Guided-mode condition</td><td>$n_\text{clad} &lt; n_\text{eff} &lt; n_\text{core}$</td></tr>
+      <tr><td>Transverse wavenumber (core)</td><td>$\kappa = k_0\sqrt{n_\text{core}^2 - n_\text{eff}^2}$</td></tr>
+      <tr><td>Decay constant (cladding)</td><td>$\gamma = k_0\sqrt{n_\text{eff}^2 - n_\text{clad}^2}$</td></tr>
+      <tr><td>V number</td><td>$V = k_0 a \sqrt{n_\text{core}^2 - n_\text{clad}^2}$</td></tr>
+      <tr><td>Even TE dispersion</td><td>$u\tan u = w$, $u^2+w^2=V^2$</td></tr>
+      <tr><td>Odd TE dispersion</td><td>$-u\cot u = w$, $u^2+w^2=V^2$</td></tr>
+      <tr><td>Mode count</td><td>$M = \lfloor 2V/\pi \rfloor + 1$</td></tr>
+      <tr><td>Mode $m$ cutoff V</td><td>$V_c = m\pi/2$</td></tr>
+      <tr><td>Single-mode condition</td><td>$d &lt; \lambda/(2\,\text{NA})$</td></tr>
+      <tr><td>Normalised index $b$</td><td>$(n_\text{eff}^2 - n_\text{clad}^2)/(n_\text{core}^2 - n_\text{clad}^2)$</td></tr>
+      <tr><td>FD convergence order</td><td>$O(\Delta x^2)$ for central-difference scheme</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<footer>
+  Built with pure HTML + JavaScript · Math typeset by
+  <a href="https://www.mathjax.org" target="_blank" style="color:var(--blue);">MathJax</a>
+  · Physics: 1D slab waveguide EM theory from Maxwell's equations
+</footer>
+
+</div><!-- #main -->
+
+<!-- ════════════════════════════════════════════
+     JAVASCRIPT
+     ════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+// ── Palette ────────────────────────────────────
+const COLORS = ['#2563eb','#dc2626','#16a34a','#7c3aed','#d97706'];
+const MNAMES = ['TE₀','TE₁','TE₂','TE₃','TE₄'];
+
+// Which mode indices are currently shown in the field-profile plot.
+// Click a legend chip to toggle; starts with every mode visible.
+const selectedModes = new Set([0,1,2,3,4]);
+
+// ── Math helpers ───────────────────────────────
+function bisect(f, a, b, tol=1e-11, maxIter=120) {
+  let fa = f(a), fb = f(b);
+  if (!isFinite(fa) || !isFinite(fb)) return null;
+  if (fa * fb > 0) return null;
+  for (let i = 0; i < maxIter; i++) {
+    const c = 0.5*(a+b), fc = f(c);
+    if (Math.abs(fc) < tol || (b-a) < tol) return c;
+    if (fa*fc <= 0) { b = c; fb = fc; } else { a = c; fa = fc; }
+  }
+  return 0.5*(a+b);
+}
+
+function findTEmodes(V) {
+  const eps = 1e-8;
+  const modes = [];
+  for (let m = 0; m * Math.PI/2 < V; m++) {
+    const uLo = m * Math.PI/2 + eps;
+    const uHi = Math.min((m+1)*Math.PI/2 - eps, V - eps);
+    if (uLo >= uHi) continue;
+    const even = (m % 2 === 0);
+    const f = even
+      ? u => { const t=Math.tan(u); return (!isFinite(t)||t<-1e6)?NaN : u*t - Math.sqrt(Math.max(0,V*V-u*u)); }
+      : u => { const t=Math.tan(u); return (!isFinite(t)||Math.abs(t)<1e-9)?NaN : -(u/t) - Math.sqrt(Math.max(0,V*V-u*u)); };
+    const u = bisect(f, uLo, uHi);
+    if (u !== null && u > 0 && u < V) {
+      const w = Math.sqrt(Math.max(0, V*V - u*u));
+      modes.push({ m, u, w, b: w*w/(V*V), even });
+    }
+  }
+  return modes;
+}
+
+function modeNeff(mode, lambda, n_core, n_clad, d) {
+  const k0 = 2*Math.PI/lambda, a = d/2;
+  return Math.sqrt(n_clad*n_clad + (mode.w/(k0*a))**2);
+}
+
+function modeConfinement(mode) {
+  const { u, w, even } = mode;
+  if (w < 1e-9) return 0;
+  if (even) {
+    const core = 1 + Math.sin(2*u)/(2*u);
+    return core / (core + Math.cos(u)**2 / w);
+  } else {
+    const core = 1 - Math.sin(2*u)/(2*u);
+    return core / (core + Math.sin(u)**2 / w);
+  }
+}
+
+function fieldProfile(xArr, mode, a) {
+  const { u, w, even } = mode;
+  const kx = u/a, gamma = w/a;
+  const vals = xArr.map(x => {
+    const ax = Math.abs(x);
+    if (ax <= a) return even ? Math.cos(kx*x) : Math.sin(kx*x);
+    const amp = even ? Math.cos(u) : Math.sign(x)*Math.sin(u);
+    return amp * Math.exp(-gamma*(ax-a));
+  });
+  const mx = Math.max(...vals.map(Math.abs));
+  return mx > 0 ? vals.map(v => v/mx) : vals;
+}
+
+function getV(lambda, n_core, n_clad, d) {
+  return (2*Math.PI/lambda)*(d/2)*Math.sqrt(n_core*n_core - n_clad*n_clad);
+}
+
+// ── Canvas utilities ───────────────────────────
+// Canvas width/height are reflected DOM attributes: assigning canvas.height
+// rewrites the "height" attribute. Every draw call below re-reads that
+// attribute to compute the next physical size, so without caching the
+// original logical size here, each redraw would multiply the canvas size
+// by devicePixelRatio again, eventually growing it far past the visible
+// viewport and making the plotted curves appear to vanish.
+const _canvasLogicalHeight = new WeakMap();
+function getLogicalHeight(canvas) {
+  if (!_canvasLogicalHeight.has(canvas)) {
+    _canvasLogicalHeight.set(canvas, parseInt(canvas.getAttribute('height')));
+  }
+  return _canvasLogicalHeight.get(canvas);
+}
+
+function setupCanvas(canvas) {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  const W = rect.width || canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  return { ctx, W, H };
+}
+
+function drawAxes(ctx, mx, my, W, H, mg, opts={}) {
+  const { xlabel='', ylabel='', title='' } = opts;
+  ctx.strokeStyle = '#94a3b8';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(mg, mg); ctx.lineTo(mg, H-mg);
+  ctx.moveTo(mg, H-mg); ctx.lineTo(W-mg, H-mg);
+  ctx.stroke();
+  ctx.fillStyle = '#64748b';
+  ctx.font = '12px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  if (xlabel) ctx.fillText(xlabel, W/2, H-4);
+  if (ylabel) { ctx.save(); ctx.translate(14, H/2); ctx.rotate(-Math.PI/2); ctx.fillText(ylabel, 0, 0); ctx.restore(); }
+  if (title) { ctx.font = '600 12px Inter, sans-serif'; ctx.fillStyle='#1a1d2e'; ctx.fillText(title, W/2, 16); }
+}
+
+// ── GEOMETRY CANVAS ────────────────────────────
+function drawGeometry() {
+  const canvas = document.getElementById('geoCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+
+  const mg = 50, midY = H/2;
+  // background
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  // index profile (left half)
+  const pw = (W-2*mg)*0.48;
+  const cx = mg + pw/2;
+  const a_frac = 0.28; // core is 56% of plot width
+  const xL = cx - pw*a_frac, xR = cx + pw*a_frac;
+  const nScale = 60; // pixels per unit n
+
+  // draw n(x) step function
+  ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  ctx.moveTo(mg, midY + 1.44*nScale/2);
+  ctx.lineTo(xL, midY + 1.44*nScale/2);
+  ctx.lineTo(xL, midY - 3.48*nScale/2 + 1.44*nScale/2);
+  ctx.lineTo(xR, midY - 3.48*nScale/2 + 1.44*nScale/2);
+  ctx.lineTo(xR, midY + 1.44*nScale/2);
+  ctx.lineTo(mg+pw, midY + 1.44*nScale/2);
+  ctx.stroke();
+
+  // fill core region
+  ctx.fillStyle = 'rgba(37,99,235,0.08)';
+  ctx.fillRect(xL, mg, xR-xL, H-2*mg);
+
+  // axes
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(mg, H-mg); ctx.lineTo(mg+pw, H-mg);
+  ctx.moveTo(mg, mg); ctx.lineTo(mg, H-mg);
+  ctx.stroke();
+
+  // labels
+  ctx.fillStyle = '#1a1d2e'; ctx.font = '11px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('n(x)', mg+pw/2, 14);
+  ctx.fillText('x', mg+pw+8, H-mg+4);
+  ctx.textAlign = 'right';
+  ctx.fillText('n_core', xL-4, midY - 3.48*nScale/2 + 1.44*nScale/2 + 12);
+  ctx.fillText('n_clad', xL-4, midY + 1.44*nScale/2 - 4);
+  ctx.textAlign = 'center';
+  ctx.fillText('-a', xL, H-mg+14);
+  ctx.fillText('+a', xR, H-mg+14);
+
+  // dashed interface lines
+  ctx.setLineDash([4,3]); ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(xL, mg); ctx.lineTo(xL, H-mg); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(xR, mg); ctx.lineTo(xR, H-mg); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // field profile (right half)
+  const fx0 = mg + (W-2*mg)*0.55;
+  const fW = (W-2*mg)*0.45;
+  const fxL = fx0 + fW*0.2, fxR = fx0 + fW*0.8;
+  const fScale = 55;
+
+  // zero line
+  ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(fx0, midY); ctx.lineTo(fx0+fW, midY); ctx.stroke();
+
+  // draw TE0 field profile sketch
+  ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  const nPts = 200;
+  for (let i = 0; i <= nPts; i++) {
+    const t = i/nPts;
+    const x = -1.4 + t*2.8; // in units of a
+    let ey;
+    if (Math.abs(x) <= 1) ey = Math.cos(1.2*x); // cos in core
+    else ey = Math.cos(1.2)*Math.exp(-2.5*(Math.abs(x)-1));
+    const px = fxL + (x+1.4)/2.8*(fxR-fxL);
+    const py = midY - ey*fScale;
+    i === 0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+  }
+  ctx.stroke();
+
+  // interface lines
+  ctx.setLineDash([4,3]); ctx.strokeStyle = '#cbd5e1';
+  ctx.beginPath(); ctx.moveTo(fxL, mg); ctx.lineTo(fxL, H-mg); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(fxR, mg); ctx.lineTo(fxR, H-mg); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // axis
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(fx0, H-mg); ctx.lineTo(fx0+fW, H-mg); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(fx0, mg); ctx.lineTo(fx0, H-mg); ctx.stroke();
+
+  ctx.fillStyle = '#1a1d2e'; ctx.font = '11px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('E_y(x)  [TE₀]', fx0+fW/2, 14);
+  ctx.fillText('x', fx0+fW+8, H-mg+4);
+  ctx.fillText('-a', fxL, H-mg+14);
+  ctx.fillText('+a', fxR, H-mg+14);
+
+  // legend areas
+  ctx.fillStyle = '#6b7280'; ctx.font = '10px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('Cladding (n_clad)', xL - (xL-mg)/2, 30);
+  ctx.fillText('Core (n_core)', cx, 30);
+  ctx.fillText('Cladding (n_clad)', (xR + mg+pw)/2, 30);
+}
+
+// ── QUALITATIVE FIELD CANVAS ───────────────────
+function drawQualFields() {
+  const canvas = document.getElementById('qualCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  const modes = [
+    { name:'TE₀', u:1.2, w:2.0, even:true },
+    { name:'TE₁', u:2.1, w:1.5, even:false },
+    { name:'TE₂', u:3.1, w:1.2, even:true },
+  ];
+  const a = 1;
+  const mg = 30, panW = (W-2*mg)/3;
+
+  modes.forEach((mode, idx) => {
+    const xOff = mg + idx*panW;
+    const midY = H/2 + 10;
+    const xL = xOff + panW*0.2, xR = xOff + panW*0.8;
+    const fScale = 50;
+    const col = COLORS[idx];
+
+    // core shading
+    ctx.fillStyle = 'rgba(37,99,235,0.06)';
+    ctx.fillRect(xL, mg, xR-xL, H-2*mg-10);
+
+    // zero line
+    ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 0.8;
+    ctx.beginPath(); ctx.moveTo(xOff, midY); ctx.lineTo(xOff+panW, midY); ctx.stroke();
+
+    // field
+    ctx.strokeStyle = col; ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    const nPts = 180;
+    const { u, w, even } = mode;
+    for (let i=0;i<=nPts;i++) {
+      const t = i/nPts;
+      const x = -1.6 + t*3.2;
+      let ey;
+      if (Math.abs(x) <= a) ey = even ? Math.cos(u*x/a) : Math.sin(u*x/a);
+      else { const amp = even ? Math.cos(u) : Math.sign(x)*Math.sin(u); ey = amp*Math.exp(-w*(Math.abs(x)-a)/a); }
+      const mx = even ? 1 : Math.abs(Math.sin(u)) > 0.01 ? 1 : 0.01;
+      const px = xL + (x+1.6)/3.2*(xR-xL);
+      const py = midY - ey*fScale;
+      i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+
+    // interfaces
+    ctx.setLineDash([3,3]); ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(xL,mg); ctx.lineTo(xL,H-mg-10); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(xR,mg); ctx.lineTo(xR,H-mg-10); ctx.stroke();
+    ctx.setLineDash([]);
+
+    // label
+    ctx.fillStyle = col; ctx.font = '600 12px Inter'; ctx.textAlign = 'center';
+    ctx.fillText(mode.name, xOff+panW/2, 16);
+  });
+}
+
+// ── GRAPHICAL SOLUTION CANVAS ──────────────────
+function drawGraphical(V) {
+  const canvas = document.getElementById('graphCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  const mg = { l:52, r:20, t:24, b:40 };
+  const pw = W - mg.l - mg.r, ph = H - mg.t - mg.b;
+  const uMax = Math.max(V*1.15, 7.5), wMax = Math.max(V*1.15, 7.5);
+
+  const ux = u => mg.l + (u/uMax)*pw;
+  const wy = w => H - mg.b - (w/wMax)*ph;
+
+  // Grid
+  ctx.strokeStyle = '#e8ecf5'; ctx.lineWidth = 0.7;
+  for (let g=1; g<=Math.ceil(uMax); g++) {
+    if (g > uMax) break;
+    ctx.beginPath(); ctx.moveTo(ux(g),mg.t); ctx.lineTo(ux(g),H-mg.b); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(mg.l,wy(g)); ctx.lineTo(W-mg.r,wy(g)); ctx.stroke();
+  }
+
+  // Axes
+  ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(mg.l,H-mg.b); ctx.lineTo(W-mg.r,H-mg.b); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(mg.l,mg.t); ctx.lineTo(mg.l,H-mg.b); ctx.stroke();
+
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  ctx.fillText('u = κa', W/2, H-4);
+  ctx.save(); ctx.translate(14, H/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText('w = γa', 0, 0); ctx.restore();
+
+  // Cutoff dashed lines
+  ctx.setLineDash([4,3]); ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1;
+  for (let m=1; m*Math.PI/2 <= uMax; m++) {
+    const uc = m*Math.PI/2;
+    ctx.beginPath(); ctx.moveTo(ux(uc),mg.t); ctx.lineTo(ux(uc),H-mg.b); ctx.stroke();
+    ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter';
+    ctx.fillText(`${m}π/2`, ux(uc), mg.t-4);
+  }
+  ctx.setLineDash([]);
+
+  // Draw characteristic functions piecewise
+  const nSeg = 300;
+  // Even branches: u·tan(u) in (2kπ/2, (2k+1)π/2) = (kπ, kπ+π/2) for k=0,1,...
+  const drawBranch = (uStart, uEnd, color, labelFn) => {
+    ctx.strokeStyle = color; ctx.lineWidth = 1.8;
+    ctx.beginPath();
+    let started = false;
+    for (let i=0;i<=nSeg;i++) {
+      const u = uStart + (i/nSeg)*(uEnd-uStart);
+      const w = labelFn(u);
+      if (!isFinite(w) || w < 0 || w > wMax*1.05) { started=false; continue; }
+      const px = ux(u), py = wy(w);
+      if (!started) { ctx.moveTo(px,py); started=true; } else ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+  };
+
+  const eps = 5e-5;
+  // Even branches (TE0, TE2, TE4 …): u·tan(u), at intervals (kπ, kπ+π/2)
+  for (let k=0; 2*k*Math.PI/2 <= uMax; k++) {
+    const u0 = 2*k*Math.PI/2 + eps;
+    const u1 = Math.min((2*k+1)*Math.PI/2 - eps, uMax);
+    if (u0 >= u1) break;
+    drawBranch(u0, u1, '#2563eb80', u => {
+      const t = Math.tan(u);
+      return (isFinite(t) && t >= 0) ? u*t : Infinity;
+    });
+  }
+
+  // Odd branches (TE1, TE3, TE5 …): -u·cot(u), at intervals (kπ+π/2, kπ+π)
+  for (let k=0; (2*k+1)*Math.PI/2 <= uMax; k++) {
+    const u0 = (2*k+1)*Math.PI/2 + eps;
+    const u1 = Math.min((2*k+2)*Math.PI/2 - eps, uMax);
+    if (u0 >= u1) break;
+    drawBranch(u0, u1, '#dc262680', u => {
+      const t = Math.tan(u);
+      return (isFinite(t) && Math.abs(t) > 1e-6) ? -(u/t) : Infinity;
+    });
+  }
+
+  // Circle w = sqrt(V²-u²)
+  ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  let first = true;
+  for (let i=0;i<=nSeg;i++) {
+    const u = (i/nSeg)*Math.min(V, uMax);
+    const w = Math.sqrt(Math.max(0, V*V - u*u));
+    const px = ux(u), py = wy(w);
+    if (first) { ctx.moveTo(px,py); first=false; } else ctx.lineTo(px,py);
+  }
+  ctx.stroke();
+
+  // V label on arc
+  ctx.fillStyle = '#16a34a'; ctx.font = '600 11px Inter'; ctx.textAlign = 'left';
+  const vLabelU = Math.min(V*0.72, uMax*0.7);
+  const vLabelW = Math.sqrt(Math.max(0, V*V - vLabelU*vLabelU));
+  if (vLabelW < wMax*0.9) ctx.fillText(`V=${V.toFixed(2)}`, ux(vLabelU)+4, wy(vLabelW)-6);
+
+  // Intersections (mode solutions)
+  const modes = findTEmodes(V);
+  modes.forEach((md) => {
+    const col = COLORS[md.m] || '#888';
+    ctx.fillStyle = col;
+    ctx.beginPath(); ctx.arc(ux(md.u), wy(md.w), 6, 0, 2*Math.PI); ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.beginPath(); ctx.arc(ux(md.u), wy(md.w), 3, 0, 2*Math.PI); ctx.fill();
+    ctx.fillStyle = col; ctx.font = '600 10px Inter'; ctx.textAlign = 'left';
+    ctx.fillText(MNAMES[md.m], ux(md.u)+8, wy(md.w)-4);
+  });
+
+  // Legend
+  ctx.font = '11px Inter'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#2563eb'; ctx.fillRect(ux(0.1), mg.t+4, 20, 3);
+  ctx.fillStyle = '#2563eb80'; ctx.fillText('u tan u  (even TE)', ux(0.1)+24, mg.t+13);
+  ctx.fillStyle = '#dc2626'; ctx.fillRect(ux(0.1), mg.t+18, 20, 3);
+  ctx.fillStyle = '#dc262680'; ctx.fillText('−u cot u  (odd TE)', ux(0.1)+24, mg.t+27);
+  ctx.fillStyle = '#16a34a'; ctx.fillRect(ux(0.1), mg.t+32, 20, 3);
+  ctx.fillStyle = '#16a34a'; ctx.fillText('√(V²−u²)  (circle)', ux(0.1)+24, mg.t+41);
+
+  // Axis tick labels
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
+  for (let g=0; g<=Math.floor(uMax); g++) {
+    ctx.fillText(g, ux(g), H-mg.b+13);
+  }
+  ctx.textAlign = 'right';
+  for (let g=0; g<=Math.floor(wMax); g++) {
+    ctx.fillText(g, mg.l-4, wy(g)+4);
+  }
+}
+
+// ── FIELD PROFILE CANVAS ───────────────────────
+function drawField(lambda, n_core, n_clad, d) {
+  const canvas = document.getElementById('fieldCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  const mg = {l:52, r:20, t:30, b:40};
+  const pw = W-mg.l-mg.r, ph = H-mg.t-mg.b;
+  const a = d/2;
+  const V = getV(lambda, n_core, n_clad, d);
+  const allModes = findTEmodes(V);
+  const modes = allModes.filter(md => selectedModes.has(md.m));
+
+  // x range: -3a to +3a (at least 1 µm total)
+  const xRange = Math.max(3*a, 0.5);
+  const xMin = -xRange, xMax = xRange;
+
+  const px_ = x => mg.l + ((x-xMin)/(xMax-xMin))*pw;
+  const py_ = e => mg.t + ph/2 - e*(ph/2-4);
+
+  // Core shading
+  ctx.fillStyle = 'rgba(37,99,235,0.06)';
+  ctx.fillRect(px_(-a), mg.t, px_(a)-px_(-a), ph);
+
+  // Zero line
+  ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(mg.l, py_(0)); ctx.lineTo(W-mg.r, py_(0)); ctx.stroke();
+
+  // Field curves
+  const nPts = 500;
+  const xs = Array.from({length:nPts+1}, (_,i) => xMin + i*(xMax-xMin)/nPts);
+
+  modes.forEach(mode => {
+    const vals = fieldProfile(xs, mode, a);
+    const col = COLORS[mode.m] || '#888';
+    ctx.strokeStyle = col; ctx.lineWidth = 2.2;
+    ctx.beginPath();
+    xs.forEach((x,i) => {
+      const px = px_(x), py = py_(vals[i]);
+      i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+    });
+    ctx.stroke();
+  });
+
+  // Interface dashes
+  ctx.setLineDash([5,4]); ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1.2;
+  ctx.beginPath(); ctx.moveTo(px_(-a),mg.t); ctx.lineTo(px_(-a),H-mg.b); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(px_(a),mg.t); ctx.lineTo(px_(a),H-mg.b); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Axes
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1.2;
+  ctx.beginPath(); ctx.moveTo(mg.l,H-mg.b); ctx.lineTo(W-mg.r,H-mg.b); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(mg.l,mg.t); ctx.lineTo(mg.l,H-mg.b); ctx.stroke();
+
+  // Labels
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  ctx.fillText('x (µm)', W/2, H-4);
+  ctx.save(); ctx.translate(14,H/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText('E_y (normalised)', 0, 0); ctx.restore();
+
+  // x ticks
+  const nTicks = 6;
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
+  for (let i=0;i<=nTicks;i++) {
+    const x = xMin + i*(xMax-xMin)/nTicks;
+    ctx.fillText(x.toFixed(2), px_(x), H-mg.b+13);
+  }
+
+  // y ticks
+  [-1,-0.5,0,0.5,1].forEach(e => {
+    ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'right';
+    ctx.fillText(e.toFixed(1), mg.l-4, py_(e)+4);
+    ctx.strokeStyle = '#f1f5f9'; ctx.lineWidth = 0.7;
+    ctx.beginPath(); ctx.moveTo(mg.l, py_(e)); ctx.lineTo(W-mg.r, py_(e)); ctx.stroke();
+  });
+
+  // Interface labels
+  ctx.fillStyle = '#64748b'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
+  ctx.fillText('-a', px_(-a), H-mg.b+13);
+  ctx.fillText('+a', px_(a),  H-mg.b+13);
+
+  if (allModes.length === 0) {
+    ctx.fillStyle = '#dc2626'; ctx.font = '13px Inter'; ctx.textAlign = 'center';
+    ctx.fillText('No guided modes for these parameters', W/2, H/2);
+  } else if (modes.length === 0) {
+    ctx.fillStyle = '#94a3b8'; ctx.font = '13px Inter'; ctx.textAlign = 'center';
+    ctx.fillText('No mode selected — click a mode in the legend above to view it', W/2, H/2);
+  }
+}
+
+// ── DISPERSION DIAGRAM ─────────────────────────
+let _dispCurves = null;
+
+function getDispCurves() {
+  if (_dispCurves) return _dispCurves;
+  const mMax = 5, Vmax = 15, nPts = 300;
+  _dispCurves = [];
+  for (let m=0; m<=mMax; m++) {
+    const Vc = m*Math.PI/2;
+    const pts = [];
+    for (let i=0;i<=nPts;i++) {
+      const V = Vc + (i/nPts)*(Vmax-Vc);
+      if (V > Vmax) break;
+      const mds = findTEmodes(V);
+      const md = mds.find(x=>x.m===m);
+      if (md) pts.push({V, b: md.b});
+    }
+    _dispCurves.push(pts);
+  }
+  return _dispCurves;
+}
+
+function drawDisp(lambda, n_core, n_clad, d) {
+  const canvas = document.getElementById('dispCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  const mg = {l:52, r:20, t:30, b:40};
+  const pw = W-mg.l-mg.r, ph = H-mg.t-mg.b;
+  const Vmax = 15;
+  const vx = V => mg.l + (V/Vmax)*pw;
+  const by = b => H-mg.b - b*ph;
+
+  // Grid
+  ctx.strokeStyle = '#e8ecf5'; ctx.lineWidth = 0.7;
+  [0,0.2,0.4,0.6,0.8,1.0].forEach(b => {
+    ctx.beginPath(); ctx.moveTo(mg.l,by(b)); ctx.lineTo(W-mg.r,by(b)); ctx.stroke();
+  });
+  for (let v=0;v<=Vmax;v+=2) {
+    ctx.beginPath(); ctx.moveTo(vx(v),mg.t); ctx.lineTo(vx(v),H-mg.b); ctx.stroke();
+  }
+
+  // Cutoff dashed lines at V = m*π/2
+  ctx.setLineDash([4,3]); ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 1;
+  for (let m=1; m*Math.PI/2 <= Vmax; m++) {
+    const Vc = m*Math.PI/2;
+    ctx.beginPath(); ctx.moveTo(vx(Vc),mg.t); ctx.lineTo(vx(Vc),H-mg.b); ctx.stroke();
+    ctx.fillStyle='#94a3b8'; ctx.font='9px Inter'; ctx.textAlign='center';
+    ctx.fillText(`V=${(m*Math.PI/2).toFixed(1)}`, vx(Vc), mg.t-4);
+  }
+  ctx.setLineDash([]);
+
+  // Dispersion curves
+  const curves = getDispCurves();
+  curves.forEach((pts, m) => {
+    if (pts.length === 0) return;
+    const col = COLORS[m] || '#888';
+    ctx.strokeStyle = col + 'cc'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    pts.forEach((p,i) => i===0 ? ctx.moveTo(vx(p.V),by(p.b)) : ctx.lineTo(vx(p.V),by(p.b)));
+    ctx.stroke();
+
+    // Mode label near end of curve
+    const last = pts[pts.length-1];
+    ctx.fillStyle = col; ctx.font = '600 10px Inter'; ctx.textAlign = 'left';
+    ctx.fillText(MNAMES[m], vx(last.V)+3, by(last.b)+4);
+  });
+
+  // Current V marker
+  const V = getV(lambda, n_core, n_clad, d);
+  if (V <= Vmax) {
+    ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.5;
+    ctx.setLineDash([6,4]);
+    ctx.beginPath(); ctx.moveTo(vx(V),mg.t); ctx.lineTo(vx(V),H-mg.b); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#1a1d2e'; ctx.font = '600 10px Inter'; ctx.textAlign = 'center';
+    ctx.fillText(`V=${V.toFixed(2)}`, vx(V), mg.t-4);
+
+    // Dots for current modes
+    const modes = findTEmodes(V);
+    modes.forEach(md => {
+      const col = COLORS[md.m] || '#888';
+      ctx.fillStyle = col;
+      ctx.beginPath(); ctx.arc(vx(V), by(md.b), 6, 0, 2*Math.PI); ctx.fill();
+      ctx.fillStyle = '#fff';
+      ctx.beginPath(); ctx.arc(vx(V), by(md.b), 2.5, 0, 2*Math.PI); ctx.fill();
+    });
+  }
+
+  // Axes
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1.2;
+  ctx.beginPath(); ctx.moveTo(mg.l,H-mg.b); ctx.lineTo(W-mg.r,H-mg.b); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(mg.l,mg.t); ctx.lineTo(mg.l,H-mg.b); ctx.stroke();
+
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  ctx.fillText('V number', W/2, H-4);
+  ctx.save(); ctx.translate(14,H/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText('b = normalised n_eff', 0, 0); ctx.restore();
+
+  // ticks
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter';
+  [0,2,4,6,8,10,12,14].forEach(v => { ctx.textAlign='center'; ctx.fillText(v, vx(v), H-mg.b+13); });
+  [0,0.5,1].forEach(b => { ctx.textAlign='right'; ctx.fillText(b.toFixed(1), mg.l-4, by(b)+4); });
+}
+
+// ── CONVERGENCE SKETCH ─────────────────────────
+function drawConv() {
+  const canvas = document.getElementById('convCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth || 700;
+  const H = getLogicalHeight(canvas);
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  const ctx = canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.fillStyle = '#f8faff'; ctx.fillRect(0,0,W,H);
+
+  const mg = {l:60,r:20,t:30,b:40};
+  const pw = W-mg.l-mg.r, ph = H-mg.t-mg.b;
+
+  // Data from actual Python runs
+  const dx  = [0.1, 0.05, 0.025, 0.0125, 0.00625];
+  const err = [1.015e-3, 2.768e-4, 7.089e-5, 1.783e-5, 4.464e-6];
+
+  const logDxMin = Math.log10(dx[dx.length-1]), logDxMax = Math.log10(dx[0]);
+  const logErrMin = Math.log10(err[err.length-1])-0.5, logErrMax = Math.log10(err[0])+0.5;
+
+  const px_ = lx => mg.l + ((lx-logDxMax)/(logDxMin-logDxMax))*pw; // inverted x
+  const py_ = le => mg.t + ((le-logErrMax)/(logErrMin-logErrMax))*ph;
+
+  // Grid
+  ctx.strokeStyle = '#e8ecf5'; ctx.lineWidth = 0.7;
+  for (let e=-7;e<=-3;e++) {
+    ctx.beginPath(); ctx.moveTo(mg.l,py_(e)); ctx.lineTo(W-mg.r,py_(e)); ctx.stroke();
+  }
+  for (let d=-3;d<=-1;d++) {
+    ctx.beginPath(); ctx.moveTo(px_(d),mg.t); ctx.lineTo(px_(d),H-mg.b); ctx.stroke();
+  }
+
+  // Reference lines
+  const refDx = logDxMin, refErr = Math.log10(err[err.length-1]);
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1.2; ctx.setLineDash([6,4]);
+  // O(dx) slope 1
+  ctx.beginPath();
+  ctx.moveTo(px_(logDxMin), py_(refErr));
+  ctx.lineTo(px_(logDxMax), py_(refErr + (logDxMax-logDxMin)*1));
+  ctx.stroke();
+  // O(dx²) slope 2
+  ctx.strokeStyle = '#64748b';
+  ctx.beginPath();
+  ctx.moveTo(px_(logDxMin), py_(refErr));
+  ctx.lineTo(px_(logDxMax), py_(refErr + (logDxMax-logDxMin)*2));
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Data line
+  ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.2;
+  ctx.beginPath();
+  dx.forEach((d,i) => {
+    const px = px_(Math.log10(d)), py = py_(Math.log10(err[i]));
+    i===0 ? ctx.moveTo(px,py) : ctx.lineTo(px,py);
+  });
+  ctx.stroke();
+
+  // Data points
+  dx.forEach((d,i) => {
+    ctx.fillStyle = '#2563eb';
+    ctx.beginPath(); ctx.arc(px_(Math.log10(d)), py_(Math.log10(err[i])), 5, 0, 2*Math.PI); ctx.fill();
+  });
+
+  // Axes
+  ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 1.2;
+  ctx.beginPath(); ctx.moveTo(mg.l,H-mg.b); ctx.lineTo(W-mg.r,H-mg.b); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(mg.l,mg.t); ctx.lineTo(mg.l,H-mg.b); ctx.stroke();
+
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  ctx.fillText('Grid spacing Δx (µm)', W/2, H-4);
+  ctx.save(); ctx.translate(16,H/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText('|n_eff error|', 0, 0); ctx.restore();
+
+  // Legend
+  ctx.font = '10px Inter'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#2563eb'; ctx.fillText('FD result', mg.l+6, mg.t+14);
+  ctx.fillStyle = '#94a3b8'; ctx.setLineDash([5,4]);
+  ctx.beginPath(); ctx.moveTo(W-140,mg.t+8); ctx.lineTo(W-120,mg.t+8); ctx.stroke();
+  ctx.fillStyle = '#94a3b8'; ctx.fillText('O(Δx)',  W-118, mg.t+12);
+  ctx.strokeStyle = '#64748b';
+  ctx.beginPath(); ctx.moveTo(W-140,mg.t+22); ctx.lineTo(W-120,mg.t+22); ctx.stroke();
+  ctx.fillStyle = '#64748b'; ctx.fillText('O(Δx²)', W-118, mg.t+26);
+  ctx.setLineDash([]);
+
+  // x-tick labels (inverted: coarse on left)
+  ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
+  [0.1, 0.05, 0.025, 0.0125, 0.00625].forEach(d => {
+    ctx.fillText(d, px_(Math.log10(d)), H-mg.b+13);
+  });
+  // y-tick labels
+  ctx.textAlign = 'right';
+  for (let e=-6;e<=-3;e++) {
+    ctx.fillText(`1e${e}`, mg.l-4, py_(e)+4);
+  }
+}
+
+// ── STATS & MODE TABLE ─────────────────────────
+function updateStats(lambda, n_core, n_clad, d) {
+  const V = getV(lambda, n_core, n_clad, d);
+  const modes = findTEmodes(V);
+
+  document.getElementById('stat-V').textContent = V.toFixed(3);
+  document.getElementById('stat-M').textContent = modes.length;
+
+  ['stat-neff0','stat-neff1','stat-neff2'].forEach((id,i) => {
+    const el = document.getElementById(id);
+    if (modes[i]) el.textContent = modeNeff(modes[i], lambda, n_core, n_clad, d).toFixed(5);
+    else el.textContent = '—';
+  });
+
+  // Mode legend — click a chip to show/hide that mode in the field-profile plot
+  const leg = document.getElementById('main-legend');
+  leg.innerHTML = '';
+  modes.forEach(md => {
+    const item = document.createElement('label');
+    item.className = 'litem';
+    item.title = 'Click to toggle this mode in the field-profile plot';
+    item.innerHTML = `<input type="checkbox" class="mode-chk" style="--chk-color:${COLORS[md.m]}" ${selectedModes.has(md.m) ? 'checked' : ''}>${MNAMES[md.m]}`;
+    item.querySelector('input').addEventListener('change', () => {
+      if (selectedModes.has(md.m)) selectedModes.delete(md.m);
+      else selectedModes.add(md.m);
+      update();
+    });
+    leg.appendChild(item);
+  });
+  if (modes.length > 1) {
+    const hint = document.createElement('div');
+    hint.className = 'litem-hint';
+    hint.textContent = 'click a mode to show/hide it';
+    leg.appendChild(hint);
+  }
+
+  // Mode table
+  const wrap = document.getElementById('mode-table-wrap');
+  if (modes.length === 0) { wrap.innerHTML = '<p style="color:var(--red);">No guided modes for these parameters.</p>'; return; }
+  let html = `<table class="tbl"><thead><tr><th>Mode</th><th>u = κa</th><th>w = γa</th><th>n<sub>eff</sub></th><th>b</th><th>Γ (%)</th></tr></thead><tbody>`;
+  modes.forEach(md => {
+    const neff = modeNeff(md, lambda, n_core, n_clad, d);
+    const G = modeConfinement(md)*100;
+    html += `<tr>
+      <td style="color:${COLORS[md.m]};font-weight:700;">${MNAMES[md.m]}</td>
+      <td>${md.u.toFixed(5)}</td>
+      <td>${md.w.toFixed(5)}</td>
+      <td>${neff.toFixed(6)}</td>
+      <td>${md.b.toFixed(5)}</td>
+      <td>${G.toFixed(1)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table>';
+  wrap.innerHTML = html;
+}
+
+// ── MAIN UPDATE ────────────────────────────────
+function update() {
+  const lambda  = parseFloat(document.getElementById('lam').value);
+  const n_core  = parseFloat(document.getElementById('ncore').value);
+  const n_clad  = parseFloat(document.getElementById('nclad').value);
+  const d       = parseFloat(document.getElementById('d').value);
+
+  // Guard: n_core must exceed n_clad
+  const nc = Math.max(n_core, n_clad + 0.01);
+
+  document.getElementById('lam-val').textContent   = `${lambda.toFixed(2)} µm`;
+  document.getElementById('ncore-val').textContent  = nc.toFixed(2);
+  document.getElementById('nclad-val').textContent  = n_clad.toFixed(2);
+  document.getElementById('d-val').textContent      = `${d.toFixed(2)} µm`;
+
+  updateStats(lambda, nc, n_clad, d);
+  drawField(lambda, nc, n_clad, d);
+  drawDisp(lambda, nc, n_clad, d);
+}
+
+// ── GRAPHICAL SOLUTION UPDATE ──────────────────
+function updateGraph() {
+  const V = parseFloat(document.getElementById('graphV').value);
+  document.getElementById('graphV-val').textContent = V.toFixed(2);
+
+  // Update legend
+  const modes = findTEmodes(V);
+  const leg = document.getElementById('graph-legend');
+  leg.innerHTML = '';
+  modes.forEach(md => {
+    const item = document.createElement('div');
+    item.className = 'litem';
+    item.innerHTML = `<span class="ldot" style="background:${COLORS[md.m]};"></span>${MNAMES[md.m]} (u=${md.u.toFixed(3)})`;
+    leg.appendChild(item);
+  });
+
+  drawGraphical(V);
+}
+
+// ── SIDEBAR HIGHLIGHT ON SCROLL ────────────────
+function highlightNav() {
+  const links = document.querySelectorAll('#sidebar nav a');
+  const sections = document.querySelectorAll('.section');
+  let current = '';
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top < window.innerHeight*0.4) current = '#'+s.id;
+  });
+  links.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === current);
+  });
+}
+
+// ── INIT ───────────────────────────────────────
+window.addEventListener('load', () => {
+  drawGeometry();
+  drawQualFields();
+  updateGraph();
+  update();
+  drawConv();
+
+  // Attach listeners
+  ['lam','ncore','nclad','d'].forEach(id => {
+    document.getElementById(id).addEventListener('input', update);
+  });
+  document.getElementById('graphV').addEventListener('input', updateGraph);
+
+  // Resize
+  window.addEventListener('resize', () => {
+    drawGeometry();
+    drawQualFields();
+    updateGraph();
+    update();
+    drawConv();
+  });
+
+  // Nav highlight
+  window.addEventListener('scroll', highlightNav, {passive:true});
+});
+</script>
+
+
+</body></html>
