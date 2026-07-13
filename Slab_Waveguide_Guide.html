@@ -1936,7 +1936,10 @@ function drawGraphical(V) {
   const pw = W - mg.l - mg.r, ph = H - mg.t - mg.b;
   const uMax = Math.max(V*1.15, 7.5), wMax = Math.max(V*1.15, 7.5);
 
-  const ux = u => mg.l + (u/uMax)*pw;
+  // u-axis is flipped (u=0 on the right) so the tan/cot branches and the
+  // V circle read left-to-right as an ascending "/" in step with rising
+  // mode order, instead of a descending "\".
+  const ux = u => mg.l + pw - (u/uMax)*pw;
   const wy = w => H - mg.b - (w/wMax)*ph;
 
   // Grid
@@ -2037,14 +2040,15 @@ function drawGraphical(V) {
     ctx.fillText(MNAMES[md.m], ux(md.u)+8, wy(md.w)-4);
   });
 
-  // Legend
+  // Legend (fixed to the top-left corner of the plot area, independent of the u-axis direction)
+  const legX = mg.l + 6;
   ctx.font = '11px Inter'; ctx.textAlign = 'left';
-  ctx.fillStyle = '#2563eb'; ctx.fillRect(ux(0.1), mg.t+4, 20, 3);
-  ctx.fillStyle = '#2563eb80'; ctx.fillText('u tan u  (even TE)', ux(0.1)+24, mg.t+13);
-  ctx.fillStyle = '#dc2626'; ctx.fillRect(ux(0.1), mg.t+18, 20, 3);
-  ctx.fillStyle = '#dc262680'; ctx.fillText('−u cot u  (odd TE)', ux(0.1)+24, mg.t+27);
-  ctx.fillStyle = '#16a34a'; ctx.fillRect(ux(0.1), mg.t+32, 20, 3);
-  ctx.fillStyle = '#16a34a'; ctx.fillText('√(V²−u²)  (circle)', ux(0.1)+24, mg.t+41);
+  ctx.fillStyle = '#2563eb'; ctx.fillRect(legX, mg.t+4, 20, 3);
+  ctx.fillStyle = '#2563eb80'; ctx.fillText('u tan u  (even TE)', legX+24, mg.t+13);
+  ctx.fillStyle = '#dc2626'; ctx.fillRect(legX, mg.t+18, 20, 3);
+  ctx.fillStyle = '#dc262680'; ctx.fillText('−u cot u  (odd TE)', legX+24, mg.t+27);
+  ctx.fillStyle = '#16a34a'; ctx.fillRect(legX, mg.t+32, 20, 3);
+  ctx.fillStyle = '#16a34a'; ctx.fillText('√(V²−u²)  (circle)', legX+24, mg.t+41);
 
   // Axis tick labels
   ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
@@ -2275,8 +2279,22 @@ function drawConv() {
   const pw = W-mg.l-mg.r, ph = H-mg.t-mg.b;
 
   // Data from actual Python runs
-  const dx  = [0.1, 0.05, 0.025, 0.0125, 0.00625];
-  const err = [1.015e-3, 2.768e-4, 7.089e-5, 1.783e-5, 4.464e-6];
+  const dxCoarse  = [0.1, 0.05, 0.025, 0.0125, 0.00625];
+  const errCoarse = [1.015e-3, 2.768e-4, 7.089e-5, 1.783e-5, 4.464e-6];
+
+  // Densify for plotting: insert one log-log-interpolated point between each
+  // pair of real runs. This is exact for a pure power law and very close here
+  // (err/dx² only drifts from 0.1015 to 0.1143 across the range), so it adds
+  // visual resolution without fabricating a separate dataset.
+  const dx = [], err = [];
+  dxCoarse.forEach((d, i) => {
+    dx.push(d); err.push(errCoarse[i]);
+    if (i < dxCoarse.length - 1) {
+      const dMid = Math.sqrt(d * dxCoarse[i+1]);
+      const logErrMid = (Math.log10(errCoarse[i]) + Math.log10(errCoarse[i+1])) / 2;
+      dx.push(dMid); err.push(Math.pow(10, logErrMid));
+    }
+  });
 
   const logDxMin = Math.log10(dx[dx.length-1]), logDxMax = Math.log10(dx[0]);
   const logErrMin = Math.log10(err[err.length-1])-0.5, logErrMax = Math.log10(err[0])+0.5;
@@ -2347,7 +2365,7 @@ function drawConv() {
 
   // x-tick labels (inverted: coarse on left)
   ctx.fillStyle = '#94a3b8'; ctx.font = '10px Inter'; ctx.textAlign = 'center';
-  [0.1, 0.05, 0.025, 0.0125, 0.00625].forEach(d => {
+  dxCoarse.forEach(d => {
     ctx.fillText(d, px_(Math.log10(d)), H-mg.b+13);
   });
   // y-tick labels
